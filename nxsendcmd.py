@@ -12,8 +12,8 @@ import json
 
 ##gather command to push
 parser = argparse.ArgumentParser(description="Input Command")
-parser.add_argument('-c', '--config', help='Configuration', required=False)
-parser.add_argument('-s', '--show', help='Show Command', required=False)
+parser.add_argument('-c', '--config', help='Configuration.  Seperate commands with a space on each side of ; ', required=False)
+parser.add_argument('-s', '--show', help='Show Commands.  Seperate commands with a space on each side of ;', required=False)
 parser.add_argument('-l', '--lab', help='Lab File', required=True)
 args = parser.parse_args()
 cmdlist = ""
