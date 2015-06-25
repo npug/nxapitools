@@ -68,11 +68,20 @@ for x in devicelist['lab']:
         if cmd == "cli_conf":
             print('{0:12} {1:1} {2:7}'.format(hostname, ":", msg))
         else:
-            print("|===Printing Output from %s===|" % hostname)
+            print("!===Printing Output from %s===!" % hostname)
             print(body)
     else:
-        count = 0
-        #print(response['ins_api']['outputs']['output'])
-        for x in response['ins_api']['outputs']['output']:
-            print('{0:12} {1:1} {2:15} {3:1} {4:7}'.format(hostname,":",cmd.split(";")[count], ":", x['msg']))
-            count = count + 1
+        if (cmd == "cli_conf"):
+            count = 0
+            #print(response['ins_api']['outputs']['output'])
+            for x in response['ins_api']['outputs']['output']:
+                print('{0:12} {1:1} {2:15} {3:1} {4:7}'.format(hostname,":",cmd.split(";")[count], ":", x['msg']))
+                count = count + 1
+        else:
+            count = 0
+            for x in response['ins_api']['outputs']['output']:
+                print ("")
+                print ("")
+                print("!===Printing Output from %s on %s ===!" % (cmd.split(";")[count], hostname))
+                print(x['body'])
+                count = count + 1
