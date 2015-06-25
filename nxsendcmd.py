@@ -74,7 +74,7 @@ for x in devicelist['lab']:
             print("!===Printing Output from %s===!" % hostname)
             print(body)
     else:
-        if (cmd == "cli_conf"):
+        if (type == "cli_conf"):
             count = 0
             #print(response['ins_api']['outputs']['output'])
             for x in response['ins_api']['outputs']['output']:
