@@ -62,7 +62,10 @@ for x in devicelist['lab']:
 ###Display Information####
     if (cmdcount == "single"):
         msg = response['ins_api']['outputs']['output']['msg']
-        body = response['ins_api']['outputs']['output']['body']
+        if response['ins_api']['outputs']['output']['code'] == "200":
+            body = response['ins_api']['outputs']['output']['body']
+        else:
+            body = response['ins_api']['outputs']['output']['clierror']
         if type == "cli_show":
             print(body)
         if cmd == "cli_conf":
